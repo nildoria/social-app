@@ -1,18 +1,46 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import Field from "../common/Field";
 
+import axios from "axios";
+
 const LoginForm = () => {
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm();
 
-  const submitForm = (formData) => {
-    navigate("/me");
-    console.log(formData);
+  const submitForm = async (formData) => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/auth/login`,
+        formData
+      );
+
+      if (response.status === 200) {
+        const { token, user } = response.data;
+        if (token) {
+          const authToken = token.token;
+          const refreshToken = token.refreshToken;
+
+          console.log(`Login time auth token: ${authToken}`);
+
+          setAuth({ user, authToken, refreshToken });
+          navigate("/me");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setError("root.random", {
+        type: "random",
+        message: `${formData.email} Invalid email or password`,
+      });
+    }
   };
 
   return (
@@ -44,7 +72,8 @@ const LoginForm = () => {
           id="password"
         />
       </Field>
-      <Field label="Email">
+      <p>{errors?.root?.random?.message}</p>
+      <Field>
         <button
           className="auth-input bg-lwsGreen font-bold text-deepDark transition-all hover:opacity-90"
           type="submit"
