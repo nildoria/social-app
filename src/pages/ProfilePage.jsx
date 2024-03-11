@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import useAxion from "../hooks/useAxios";
@@ -37,7 +36,10 @@ const ProfilePage = () => {
   }
   return (
     <>
-      <div>{user?.firstName}</div>
+      <div>
+        Welcome, {user?.firstName} {user?.lastName}
+        <p>You have {posts.length} posts</p>
+      </div>
     </>
   );
 };

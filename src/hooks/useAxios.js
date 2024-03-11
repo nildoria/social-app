@@ -60,7 +60,7 @@ const useAxion = () => {
     };
   }, [auth.authToken]);
 
-  return api;
+  return { api };
 };
 
 export default useAxion;
