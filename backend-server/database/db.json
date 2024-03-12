@@ -514,6 +514,15 @@
       "avatar": "uploads/avatar/avatar-1708802845791-219561000.png",
       "email": "rambo@email.com",
       "bio": "I am Rambo!!!"
+    },
+    {
+      "id": "edb9f717-dfe2-47df-8318-41c29b110e85",
+      "password": "$2b$08$d/qe0j8gVxvIV9GA1tN0B.IM1agMGlrUOcfcaHaU3F.uBeIMeP4T2",
+      "firstName": "Sabbir",
+      "lastName": "Ahmed",
+      "avatar": "uploads/avatar/avatar-1710270384444-306232364.jpg",
+      "email": "sabbir@gmail.com",
+      "bio": "Bio Text Here"
     }
   ]
 }
