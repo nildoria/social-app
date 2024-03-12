@@ -1,8 +1,7 @@
 import { useAvatar } from "../../hooks/useAvatar";
 
-const PostCommentList = ({ post }) => {
+const PostCommentList = ({ post, comments }) => {
   const { avatarURL } = useAvatar(post);
-  const comments = post?.comments;
 
   return (
     <>
