@@ -31,7 +31,7 @@ const LoginForm = () => {
           console.log(`Login time auth token: ${authToken}`);
 
           setAuth({ user, authToken, refreshToken });
-          navigate("/me");
+          navigate("/");
         }
       }
     } catch (error) {

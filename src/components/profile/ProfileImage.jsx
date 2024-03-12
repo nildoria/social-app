@@ -51,7 +51,7 @@ const ProfileImage = () => {
   return (
     <div className="relative mb-8 h-[180px] w-[180px] rounded-full lg:mb-11 lg:h-[218px] lg:w-[218px]">
       <img
-        className="h-full w-full object-cover	 rounded-full"
+        className="h-full w-full object-cover rounded-full"
         src={`${import.meta.env.VITE_SERVER_BASE_URL}/${state?.user?.avatar}`}
         alt={state?.user?.firstName}
       />
