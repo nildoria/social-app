@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { api } from "../api";
 import { useAuth } from "./useAuth";
 
-const useAxion = () => {
+const useAxios = () => {
   const { auth, setAuth } = useAuth();
 
   useEffect(() => {
@@ -63,4 +63,4 @@ const useAxion = () => {
   return { api };
 };
 
-export default useAxion;
+export default useAxios;
