@@ -9,5 +9,5 @@ export const useAvatar = (post) => {
 
   const avatarURL = `${import.meta.env.VITE_SERVER_BASE_URL}/${avatar}`;
 
-  return { avatarURL };
+  return { avatarURL, isMe };
 };

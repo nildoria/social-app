@@ -26,7 +26,7 @@ const PostEntry = ({ onClose }) => {
 
   const handlePostSubmit = async (formData) => {
     console.log(formData);
-    dispatch({ type: actions.post.POST_DATA_FETCHING });
+    dispatch({ type: actions.post.DATA_FETCHING });
     try {
       const response = await api.post(
         `${import.meta.env.VITE_SERVER_BASE_URL}/posts`,
