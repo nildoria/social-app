@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
+import { useProfile } from "../../hooks/useProfile";
 import PostCommentList from "./PostCommentList";
 
 const PostComments = ({ post }) => {
@@ -11,8 +12,9 @@ const PostComments = ({ post }) => {
   const { api } = useAxios();
 
   const { auth } = useAuth();
+  const { state: profile } = useProfile();
 
-  const user = auth?.user;
+  const user = profile?.user ?? auth?.user;
 
   const addComment = async (e) => {
     const keyCode = e.keyCode;

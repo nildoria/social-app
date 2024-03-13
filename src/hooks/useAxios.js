@@ -30,7 +30,6 @@ const useAxios = () => {
         if (error.response.status === 401 && !originalRequest._retry) {
           originalRequest._retry = true;
 
-          // eslint-disable-next-line no-useless-catch
           try {
             const refreshToken = auth?.refreshToken;
             const response = await axios.post(
@@ -47,6 +46,7 @@ const useAxios = () => {
 
             return axios(originalRequest);
           } catch (error) {
+            console.error(error);
             throw error;
           }
         }
